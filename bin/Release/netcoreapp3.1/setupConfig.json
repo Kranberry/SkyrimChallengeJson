@@ -1,0 +1,178 @@
+{
+  "Race": [
+    "Altmer",
+    "Nord",
+    "Bosmer",
+    "Breton",
+    "Dunmer",
+    "Imperial",
+    "Khajit",
+    "Orc",
+    "Redguard",
+    "Argonian"
+  ],
+  "Skills": [
+    {
+      "Skill": "One Handed",
+      "Type": "Attack"
+    },
+    {
+      "Skill": "Two Handed",
+      "Type": "Attack"
+    },
+    {
+      "Skill": "Destruction",
+      "Type": "Attack"
+    },
+    {
+      "Skill": "Conjuration"
+    },
+    {
+      "Skill": "Illusion"
+    },
+    {
+      "Skill": "Alchemy"
+    },
+    {
+      "Skill": "Speech"
+    },
+    {
+      "Skill": "Sneak"
+    },
+    {
+      "Skill": "Lockpicking"
+    },
+    {
+      "Skill": "Smithing"
+    },
+    {
+      "Skill": "Archery",
+      "Type": "Attack"
+    },
+    {
+      "Skill": "Block"
+    },
+    {
+      "Skill": "Light Armor"
+    },
+    {
+      "Skill": "Heavy Armor"
+    },
+    {
+      "Skill": "Enchanting"
+    },
+    {
+      "Skill": "Alteration"
+    },
+    {
+      "Skill": "Restoration"
+    },
+    {
+      "Skill": "Pickpocket"
+    }
+  ],
+  "Objectives": [
+    {
+      "Objective": "Main Quest",
+      "SkillReward": 3
+    },
+    {
+      "Objective": "Thane 5 cities",
+      "SkillReward": 3
+    },
+    {
+      "Objective": "DawnGuard Vampire",
+      "LevelRequired": 15,
+      "InRelationTo": [
+        "DawnGuard Human"
+      ],
+      "SkillReward": 3
+    },
+    {
+      "Objective": "DawnGuard Human",
+      "LevelRequired": 15,
+      "InRelationTo": [
+        "DawnGuard Vampire"
+      ],
+      "SkillReward": 3
+    },
+    {
+      "Objective": "Thieves Guild",
+      "LevelRequired": 5,
+      "SkillReward": 3
+    },
+    {
+      "Objective": "The Dark Brotherhood",
+      "LevelRequired": 5,
+      "SkillReward": 3
+    },
+    {
+      "Objective": "College Of Winterhold",
+      "LevelRequired": 7,
+      "SkillReward": 3
+    },
+    {
+      "Objective": "DragonBorn",
+      "LevelRequired": 20,
+      "SkillReward": 3
+    },
+    {
+      "Objective": "The Man Who Cried Wolf",
+      "LevelRequired": 7,
+      "SkillReward": 2
+    },
+    {
+      "Objective": "Forsworn",
+      "SkillReward": 2
+    },
+    {
+      "Objective": "Imperials",
+      "InRelationTo": [
+        "Stormcloaks"
+      ],
+      "SkillReward": 2
+    },
+    {
+      "Objective": "Stormcloaks",
+      "InRelationTo": [
+        "Imperials"
+      ],
+      "SkillReward": 2
+    },
+    {
+      "Objective": "Talking Dog",
+      "LevelRequired": 10,
+      "SkillReward": 2
+    },
+    {
+      "Objective": "Mind Of Madness",
+      "SkillReward": 1
+    },
+    {
+      "Objective": "Coming Of Age",
+      "SkillReward": 1
+    },
+    {
+      "Objective": "Kill Ebony Warrior",
+      "LevelRequired": 50,
+      "SkillReward": 4
+    },
+    {
+      "Objective": "Choose One, No Fast Travel",
+      "NoFastTravel": true
+    }
+  ],
+  "FollowerLocation": [
+    "Whiterun",
+    "Riften",
+    "Markarth",
+    "Solitude",
+    "Dawnstar",
+    "Morthal",
+    "Winterhold",
+    "Falkreath",
+    "Windhelm",
+    "Riverwood",
+    "Out in the world"
+  ]
+}

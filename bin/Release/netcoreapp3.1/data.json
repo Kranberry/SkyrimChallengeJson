@@ -1,0 +1,7 @@
+{
+  "PathToCharacterFile": "E:\\dwopbox\\Dropbox\\Hobby Projekt\\Programmering\\Skyrim_Challenge\\SkyrimChallenge\\bin\\Release\\netcoreapp3.1\\characterConfig.json",
+  "PathToCharacterSetupFile": "E:\\dwopbox\\Dropbox\\Hobby Projekt\\Programmering\\Skyrim_Challenge\\SkyrimChallenge\\bin\\Release\\netcoreapp3.1\\setupConfig.json",
+  "StartingSkillCount": 3,
+  "PossibleAmountOfFollowers": 1,
+  "ResetCount": 1
+}

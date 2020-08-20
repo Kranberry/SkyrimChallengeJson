@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\f3bat\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\f3bat\\.nuget\\packages"
+    ]
+  }
+}
