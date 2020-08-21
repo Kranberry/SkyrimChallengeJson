@@ -19,6 +19,7 @@ alternativeSetupConfig.json ::: This is an alternative, the reason is to show of
 characterConfig.json        ::: This is your character. Objectives you have finished an so on.
 
 How to use it.
+
 When you first start the program, all you need to do is press "Reset". Pressing this button will give you a race, a follower location, an objective and the same amount of skills as stated inside the data folder. You will always recieve an attacking skill when you reset.
 Next to your active race, there is a little box with the number 0 in it. This number is your level.
 Whenever you finish your objective you update your level and press "Objective Finished", this will put your finished objective inside a list of finished objectives, as well as give you the same amount of skills stated inside setupConfig.json for that objective.
