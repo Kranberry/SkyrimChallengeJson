@@ -5,25 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SkyrimChallenge"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="415"
-        MinHeight="500" MinWidth="425"
-        MaxHeight="500" MaxWidth="425">
-    <Grid Background="FloralWhite" Margin="0,0,0,0">
-        <TextBox x:Name="Objective" FontWeight="Bold" FontSize="10" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" HorizontalAlignment="Left" IsReadOnly="True" TextAlignment="Center" Margin="10,83,0,0" Text="Objective" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="16" />
-        <TextBox x:Name="Skills" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" HorizontalAlignment="Left" IsReadOnly="True" TextAlignment="Center" Margin="168,83,0,0" Text="Skills" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" />
-        <TextBox x:Name="FollowerLocation" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="10,46,0,0" Text="Follower" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" />
-        <TextBox x:Name="CurrentFollower" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="WhiteSmoke" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="68,46,0,0" Text="Out in the world" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" />
-        <TextBox x:Name="CurrentObjective" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="10,102,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="18"/>
-        <TextBox x:Name="FinishedObjectives" IsReadOnly="True" AcceptsReturn="True" HorizontalAlignment="Left" TextAlignment="Left" Margin="10,119,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="336"/>
-        <TextBox x:Name="Race" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" HorizontalAlignment="Left" IsReadOnly="True" TextAlignment="Center" Margin="10,29,0,0" Text="Race" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" />
-        <TextBox x:Name="CurrentRace" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="WhiteSmoke" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="68,29,0,0" Text="Argonian" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" />
-        <TextBox x:Name="CurrentSkills" IsReadOnly="True" AcceptsReturn="True" HorizontalAlignment="Left" TextAlignment="Left" Margin="168,101,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" Height="354"/>
-        <Button x:Name="NewCharacter" Background="PowderBlue" Content="Reset" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.513,0.57" Width="76" Height="18"/>
-        <Button x:Name="ObjectiveFinished" Background="PowderBlue"  Content="Objective Finished" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Height="18" Width="153"/>
-        <TextBox x:Name="Raw" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="285,15,0,0" Text="Raw" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" />
-        <TextBox x:Name="RawText" VerticalScrollBarVisibility="Visible" IsReadOnly="True" AcceptsReturn="True" HorizontalAlignment="Left" TextAlignment="Left" Margin="285,37,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" Height="418"/>
-        <Button x:Name="LoadCharacter" Background="PowderBlue" Content="Load" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.513,0.57" Width="72" Height="18"/>
-        <TextBox x:Name="CurrentLevel" FontSize="10" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="WhiteSmoke" IsReadOnly="False" HorizontalAlignment="Left" TextAlignment="Center" Margin="141,29,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="22" Height="17" />
+        Title="MainWindow" Height="550" Width="415"
+        MinHeight="550" MinWidth="425"
+        MaxHeight="550" MaxWidth="425">
+    <Grid Background="FloralWhite">
+        <TextBox x:Name="Objective" FontWeight="Bold" FontSize="10" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" HorizontalAlignment="Left" IsReadOnly="True" TextAlignment="Center" Margin="16,131,0,0" Text="Objective" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="16" />
+        <TextBox x:Name="Skills" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" HorizontalAlignment="Left" IsReadOnly="True" TextAlignment="Center" Margin="174,131,0,0" Text="Skills" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" />
+        <TextBox x:Name="FollowerLocation" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="19,77,0,0" Text="Follower" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" />
+        <TextBox x:Name="CurrentFollower" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="WhiteSmoke" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="82,77,0,0" Text="Out in the world" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" />
+        <TextBox x:Name="CurrentObjective" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="16,150,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="18"/>
+        <TextBox x:Name="FinishedObjectives" IsReadOnly="True" AcceptsReturn="True" HorizontalAlignment="Left" TextAlignment="Left" Margin="16,167,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="336"/>
+        <TextBox x:Name="Race" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" HorizontalAlignment="Left" IsReadOnly="True" TextAlignment="Center" Margin="18,33,0,0" Text="Race" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" />
+        <TextBox x:Name="CurrentRace" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="WhiteSmoke" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="81,33,0,0" Text="Argonian" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" />
+        <TextBox x:Name="CurrentSkills" IsReadOnly="True" AcceptsReturn="True" HorizontalAlignment="Left" TextAlignment="Left" Margin="174,149,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="112" Height="354"/>
+        <Button x:Name="NewCharacter" Background="PowderBlue" Content="Reset" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.513,0.57" Width="76" Height="18" Click="NewCharacter_Click"/>
+        <Button x:Name="ObjectiveFinished" Background="PowderBlue"  Content="Objective Finished" HorizontalAlignment="Left" Margin="16,111,0,0" VerticalAlignment="Top" Height="18" Width="153"/>
+        <TextBox x:Name="Raw" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="291,80,0,0" Text="Raw" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" Height="16" />
+        <TextBox x:Name="RawText" VerticalScrollBarVisibility="Visible" IsReadOnly="True" AcceptsReturn="True" HorizontalAlignment="Left" TextAlignment="Left" Margin="291,101,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" Height="402"/>
+        <Button x:Name="LoadCharacter" Background="PowderBlue" Content="Load" HorizontalAlignment="Left" Margin="97,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.513,0.57" Width="72" Height="18"/>
+        <TextBox x:Name="CurrentLevel" FontSize="10" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="WhiteSmoke" IsReadOnly="False" HorizontalAlignment="Left" TextAlignment="Center" Margin="82,55,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Height="17" />
+        <TextBox x:Name="AlternativeStart" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" HorizontalAlignment="Left" IsReadOnly="True" TextAlignment="Center" Margin="174,11,0,0" Text="Alternative Start" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" TextChanged="AlternativeStart_TextChanged" />
+        <TextBox x:Name="AlternativeStartText" IsReadOnly="True" HorizontalAlignment="Left" TextAlignment="Center" Margin="174,33,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Height="34"/>
+        <TextBox x:Name="Level" BorderBrush="DarkSlateGray" BorderThickness="0.5" Background="LightGray" HorizontalAlignment="Left" IsReadOnly="True" TextAlignment="Center" Margin="18,55,0,0" Text="Level" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" />
 
     </Grid>
 </Window>

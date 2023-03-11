@@ -64,39 +64,50 @@ namespace SkyrimChallenge
             RawText.Text = "";
             CurrentSkills.Text = "";
             FinishedObjectives.Text = "";
-            CurrentLevel.Text = jsonReaderWriter.jsonCharacterConfig.level.ToString();
+            CurrentLevel.Text = jsonReaderWriter.jsonCharacterConfig.Level.ToString();
 
-            CurrentObjective.Text = jsonReaderWriter.jsonCharacterConfig.currentObjective;
-            CurrentRace.Text = jsonReaderWriter.jsonCharacterConfig.race;
-            CurrentFollower.Text = jsonReaderWriter.jsonCharacterConfig.followerLocation;
+            CurrentObjective.Text = jsonReaderWriter.jsonCharacterConfig.CurrentObjective;
+            CurrentRace.Text = jsonReaderWriter.jsonCharacterConfig.Race;
+            CurrentFollower.Text = jsonReaderWriter.jsonCharacterConfig.FollowerLocation;
+            AlternativeStartText.Text = jsonReaderWriter.jsonCharacterConfig.AlternativeStartLocation;
 
-            foreach (string element in jsonReaderWriter.jsonCharacterConfig.acquiredSkills)
+            foreach (string element in jsonReaderWriter.jsonCharacterConfig.AcquiredSkills)
             {
                 CurrentSkills.Text += element + "\n";
             }
-            for (int i = 0; i < jsonReaderWriter.jsonCharacterConfig.finishedObjectives.Count(); i++)
+            for (int i = 0; i < jsonReaderWriter.jsonCharacterConfig.FinishedObjectives.Count(); i++)
             {
-                FinishedObjectives.Text += jsonReaderWriter.jsonCharacterConfig.finishedObjectives[i];
-                if (i != jsonReaderWriter.jsonCharacterConfig.finishedObjectives.Count() - 1)
+                FinishedObjectives.Text += jsonReaderWriter.jsonCharacterConfig.FinishedObjectives[i];
+                if (i != jsonReaderWriter.jsonCharacterConfig.FinishedObjectives.Count() - 1)
                     FinishedObjectives.Text += "\n";
             }
 
             // Will fill in the raw text
-            RawText.Text += jsonReaderWriter.jsonCharacterConfig.race + "\n--------------\n" + jsonReaderWriter.jsonCharacterConfig.currentObjective + "\n--------------\n";
-            for (int i = 0; i < jsonReaderWriter.jsonCharacterConfig.finishedObjectives.Count(); i++)
+            RawText.Text += jsonReaderWriter.jsonCharacterConfig.Race + "\n--------------\n" + jsonReaderWriter.jsonCharacterConfig.CurrentObjective + "\n--------------\n";
+            for (int i = 0; i < jsonReaderWriter.jsonCharacterConfig.FinishedObjectives.Count(); i++)
             {
-                RawText.Text += jsonReaderWriter.jsonCharacterConfig.finishedObjectives[i];
-                if (i != jsonReaderWriter.jsonCharacterConfig.finishedObjectives.Count() - 1)
+                RawText.Text += jsonReaderWriter.jsonCharacterConfig.FinishedObjectives[i];
+                if (i != jsonReaderWriter.jsonCharacterConfig.FinishedObjectives.Count() - 1)
                     RawText.Text += "\n";
             }
             RawText.Text += "\n--------------\n";
-            for (int i = 0; i < jsonReaderWriter.jsonCharacterConfig.acquiredSkills.Count(); i++)
+            for (int i = 0; i < jsonReaderWriter.jsonCharacterConfig.AcquiredSkills.Count(); i++)
             {
-                RawText.Text += jsonReaderWriter.jsonCharacterConfig.acquiredSkills[i];
-                if (i != jsonReaderWriter.jsonCharacterConfig.acquiredSkills.Count() - 1)
+                RawText.Text += jsonReaderWriter.jsonCharacterConfig.AcquiredSkills[i];
+                if (i != jsonReaderWriter.jsonCharacterConfig.AcquiredSkills.Count() - 1)
                     RawText.Text += "\n";
             }
-            RawText.Text += "\n--------------\n" + jsonReaderWriter.jsonCharacterConfig.followerLocation;
+            RawText.Text += "\n--------------\n" + jsonReaderWriter.jsonCharacterConfig.FollowerLocation;
+        }
+
+        private void AlternativeStart_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void NewCharacter_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

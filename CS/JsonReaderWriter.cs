@@ -69,13 +69,13 @@ namespace Skyrim_challenge.cs
         {
             if (!File.Exists(setupConfigPath))
             {
-                newCharacterSetup.setDefaultSettings();
+                newCharacterSetup.SetDefaultSettings();
                 // Skriver ut alla properties i objektet. Formaterar det, och även ignorerar alla default värden
                 File.WriteAllText(setupConfigPath, JsonConvert.SerializeObject(newCharacterSetup, Formatting.Indented, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore }));
             }
             if (!File.Exists(alternativeSetupConfigPath))
             {
-                newCharacterSetup.setDefaultSettings(true);
+                newCharacterSetup.SetDefaultSettings(true);
                 File.WriteAllText(alternativeSetupConfigPath, JsonConvert.SerializeObject(newCharacterSetup, Formatting.Indented, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore }));
             }
         }

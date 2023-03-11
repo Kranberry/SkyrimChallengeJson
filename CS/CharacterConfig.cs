@@ -12,35 +12,38 @@ namespace Skyrim_challenge.cs
 {
     class CharacterConfig
     {
-        public string race { get; set; }
-        public uint level { get; set; }
-        private List<Objectives> availavleObjectives = new List<Objectives>();
-        public string currentObjective { get; set; }
-        public List<string> finishedObjectives;
-        public List<string> acquiredSkills;
-        public string followerLocation { get; set; }
-        private Data data;
+        public string Race { get; set; }
+        public string AlternativeStartLocation { get; set; }
+        public uint Level { get; set; }
+        private List<Objectives> AvailavleObjectives = new List<Objectives>();
+        public string CurrentObjective { get; set; }
+        public List<string> FinishedObjectives;
+        public List<string> AcquiredSkills;
+        public string FollowerLocation { get; set; }
+        private Data Data;
         private ChooseOneNoFastTravelWindow NFT;
-        private bool finishedChallenge;
+        private bool FinishedChallenge;
+
 
         public CharacterConfig()
         {
-            level = 0;
-            finishedObjectives = new List<string>();
-            acquiredSkills = new List<string>();
+            Level = 0;
+            FinishedObjectives = new List<string>();
+            AcquiredSkills = new List<string>();
         }
 
         // This method handles the resetting of a character
         public void CreateNewCharacter(Data data, NewCharacterSetup newCharacterSetup)
         {// Put default values in from the setup config
-            this.data = data;
-            level = 0;
+            this.Data = data;
+            Level = 0;
             data.resetCount++;
             Random rand = new Random();
-            finishedObjectives.Clear();
-            acquiredSkills.Clear();
-            race = newCharacterSetup.races[rand.Next(0, newCharacterSetup.races.Count())];
-            followerLocation = newCharacterSetup.followerLocations[rand.Next(0, newCharacterSetup.followerLocations.Count())];
+            FinishedObjectives.Clear();
+            AcquiredSkills.Clear();
+            Race = newCharacterSetup.Races[rand.Next(0, newCharacterSetup.Races.Count())];
+            FollowerLocation = newCharacterSetup.FollowerLocations[rand.Next(0, newCharacterSetup.FollowerLocations.Count())];
+            AlternativeStartLocation = newCharacterSetup.AlternativeStartLocations[rand.Next(0, newCharacterSetup.AlternativeStartLocations.Count())];
 
             GetNewSkills(newCharacterSetup, true);
             GetNewObjective(newCharacterSetup);
@@ -49,7 +52,7 @@ namespace Skyrim_challenge.cs
         // This method is called whenever an objective is finished. This will get you new skills and a new objective.
         public void ObjectiveFinished(NewCharacterSetup newCharacterSetup, uint level, string currentObjective)
         {
-            this.level = level;
+            this.Level = level;
             GetNewSkills(newCharacterSetup, false, currentObjective);
             GetNewObjective(newCharacterSetup, currentObjective);
         }
@@ -63,21 +66,21 @@ namespace Skyrim_challenge.cs
             string skillToBeType;
             Skills skillToBeRaw;
             // Will throw exeption that there is no such thing in sequence when all objectives are finished
-            if (finishedObjectives.Count == newCharacterSetup.objectives.Count - 1)
+            if (FinishedObjectives.Count == newCharacterSetup.Objectives.Count - 1)
             {
                 FinishedTheChallenge();
                 return;
             }
-            int skillsToBeAdded = newCharacter ? (int)data.startingSkillCount : newCharacterSetup.objectives.First(item => item.objective == currentObjectiveTrimmed).skillReward;
+            int skillsToBeAdded = newCharacter ? (int)Data.startingSkillCount : newCharacterSetup.Objectives.First(item => item.objective == currentObjectiveTrimmed).skillReward;
 
             // Adds skills of the same amount written down in data
-            if (acquiredSkills.Count != newCharacterSetup.skills.Count)
+            if (AcquiredSkills.Count != newCharacterSetup.Skills.Count)
             {
                 for (int i = 0; i < skillsToBeAdded; i++)
                 {
-                    if (acquiredSkills.Count != newCharacterSetup.skills.Count)
+                    if (AcquiredSkills.Count != newCharacterSetup.Skills.Count)
                     {
-                        skillToBeRaw = newCharacterSetup.skills[rand.Next(0, newCharacterSetup.skills.Count())];
+                        skillToBeRaw = newCharacterSetup.Skills[rand.Next(0, newCharacterSetup.Skills.Count())];
                         skillToBeType = skillToBeRaw.type;
                         // One skill will always be of the attacking type. The first one when you reset.
                         if (skillToBeType == "Attack" && i < 1 && newCharacter)
@@ -91,12 +94,12 @@ namespace Skyrim_challenge.cs
                         }
                         skillToBe = skillToBeRaw.skill;
 
-                        if (acquiredSkills.Contains(skillToBe))
+                        if (AcquiredSkills.Contains(skillToBe))
                         {
                             i--;
                             continue;
                         }
-                        acquiredSkills.Add(skillToBe);
+                        AcquiredSkills.Add(skillToBe);
                     }
                 }
             }
@@ -106,37 +109,37 @@ namespace Skyrim_challenge.cs
         // This method handles getting objectives
         private void GetNewObjective(NewCharacterSetup newCharacterSetup, string currentObjective = null)
         {
-            if (!finishedChallenge)
+            if (!FinishedChallenge)
             {
-                availavleObjectives.Clear();
+                AvailavleObjectives.Clear();
                 if (currentObjective != null)
                 {
                     // This loop will check every objective if the objective with the same realtion to it is finished, and will be marked with ITF (Impossible To Finish)
-                    foreach(Objectives objective in newCharacterSetup.objectives)
+                    foreach(Objectives objective in newCharacterSetup.Objectives)
                     {   
                         if (objective.inRelationTo == null)
                             continue;
                         if (objective.inRelationTo.Contains(currentObjective.Replace(" NFT", "")))
-                            finishedObjectives.Add(objective.objective + " ITF");
+                            FinishedObjectives.Add(objective.objective + " ITF");
                     }
-                    finishedObjectives.Add(currentObjective);
+                    FinishedObjectives.Add(currentObjective);
                 }
                 // This will finish the challenge if every objective is finished. -1 is to count out no fast travel.
-                if (finishedObjectives.Count == newCharacterSetup.objectives.Count - 1)
+                if (FinishedObjectives.Count == newCharacterSetup.Objectives.Count - 1)
                 {
                     FinishedTheChallenge();
                     return;
                 }
 
                 Random rand = new Random();
-                List<Objectives> objectives = newCharacterSetup.objectives;
+                List<Objectives> objectives = newCharacterSetup.Objectives;
 
                 // Gets the objective available for the player
                 foreach (Objectives element in objectives)
                 {
-                    if (element.levelRequired <= level && !IsItFinished(newCharacterSetup, element.objective) && arePreviousObjectivesFinished(newCharacterSetup, element.objective))
+                    if (element.levelRequired <= Level && !IsItFinished(newCharacterSetup, element.objective) && arePreviousObjectivesFinished(newCharacterSetup, element.objective))
                     {
-                        availavleObjectives.Add(element);
+                        AvailavleObjectives.Add(element);
                     }
                     else
                         continue;
@@ -146,23 +149,23 @@ namespace Skyrim_challenge.cs
                 // Always get one objective.
                 do
                 {
-                    Objectives objectivesRaw = availavleObjectives[rand.Next(0, availavleObjectives.Count)];
+                    Objectives objectivesRaw = AvailavleObjectives[rand.Next(0, AvailavleObjectives.Count)];
                     //Objectives objectivesRaw = newCharacterSetup.objectives[rand.Next(0, newCharacterSetup.objectives.Count())];
                     if (objectivesRaw.noFastTravel)
                         currentObjective = ChooseOneNoFastTravel(newCharacterSetup);
                     else
                         currentObjective = objectivesRaw.objective;
-                } while (currentObjective == null || finishedObjectives.Contains(currentObjective));
+                } while (currentObjective == null || FinishedObjectives.Contains(currentObjective));
 
-                this.currentObjective = currentObjective;
+                this.CurrentObjective = currentObjective;
             }
         }
         
         // Will make it so that you can't continue pressing objective complete after finishing the last one
         public void FinishedTheChallenge()
         {
-            currentObjective = "You won the challenge!";
-            finishedChallenge = true;
+            CurrentObjective = "You won the challenge!";
+            FinishedChallenge = true;
         }
 
         // This method will check if the previous mustHaveFinished objectives are finished.
@@ -170,7 +173,7 @@ namespace Skyrim_challenge.cs
         {                           // Relative to how many objectives must be finished
             int amountOfObjectives, amountOfFinishedObjetives = 0;
 
-            Objectives objectiveInQuestion = newCharacterSetup.objectives.First(item => item.objective == element);
+            Objectives objectiveInQuestion = newCharacterSetup.Objectives.First(item => item.objective == element);
 
             if (objectiveInQuestion.mustHaveFinishedTheseObjectives == null)
                 return true;
@@ -178,7 +181,7 @@ namespace Skyrim_challenge.cs
             amountOfObjectives = objectiveInQuestion.mustHaveFinishedTheseObjectives.Count();
             for (int i = 0; i < amountOfObjectives; i++)
             {
-                if (finishedObjectives.Contains(objectiveInQuestion.mustHaveFinishedTheseObjectives[i]) || finishedObjectives.Contains(objectiveInQuestion.mustHaveFinishedTheseObjectives[i] + " ITF") || finishedObjectives.Contains(objectiveInQuestion.mustHaveFinishedTheseObjectives[i] + " NFT"))
+                if (FinishedObjectives.Contains(objectiveInQuestion.mustHaveFinishedTheseObjectives[i]) || FinishedObjectives.Contains(objectiveInQuestion.mustHaveFinishedTheseObjectives[i] + " ITF") || FinishedObjectives.Contains(objectiveInQuestion.mustHaveFinishedTheseObjectives[i] + " NFT"))
                     amountOfFinishedObjetives++;
             }
             MessageBox.Show(objectiveInQuestion.objective + " : " + amountOfObjectives + " : " + amountOfFinishedObjetives);
@@ -188,12 +191,12 @@ namespace Skyrim_challenge.cs
         // Will check if the objective in question is already complete
         private bool IsItFinished(NewCharacterSetup newCharacterSetup ,string element)
         {
-            if (finishedObjectives.Count == 0)
+            if (FinishedObjectives.Count == 0)
                 return false;
            
-            for (int i = 0; i < finishedObjectives.Count; i++)
+            for (int i = 0; i < FinishedObjectives.Count; i++)
             {
-                if (element == finishedObjectives[i].Replace(" NFT", "") || element == finishedObjectives[i].Replace(" ITF", ""))
+                if (element == FinishedObjectives[i].Replace(" NFT", "") || element == FinishedObjectives[i].Replace(" ITF", ""))
                 {
                     return true;
                 }
@@ -205,12 +208,12 @@ namespace Skyrim_challenge.cs
         private string ChooseOneNoFastTravel(NewCharacterSetup newCharacterSetup)
         {
             Random rand = new Random();
-            availavleObjectives.Remove(availavleObjectives.First(item => item.noFastTravel));
+            AvailavleObjectives.Remove(AvailavleObjectives.First(item => item.noFastTravel));
 
-            NFT = new ChooseOneNoFastTravelWindow(availavleObjectives);
+            NFT = new ChooseOneNoFastTravelWindow(AvailavleObjectives);
             if(!(bool)NFT.ShowDialog())
             {
-                NFT.choosenObjective = availavleObjectives[rand.Next(0, availavleObjectives.Count)].objective;
+                NFT.choosenObjective = AvailavleObjectives[rand.Next(0, AvailavleObjectives.Count)].objective;
             }
 
             return NFT.choosenObjective + " NFT";

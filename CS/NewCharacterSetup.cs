@@ -11,30 +11,34 @@ namespace Skyrim_challenge.cs
     class NewCharacterSetup
     {
         [JsonProperty(propertyName: "Race")]
-        public List<string> races { get; set; }
+        public List<string> Races { get; set; }
 
         [JsonProperty(propertyName: "Skills")]
-        public List<Skills> skills { get; set; }
+        public List<Skills> Skills { get; set; }
 
         [JsonProperty(propertyName: "Objectives")]
-        public List<Objectives> objectives { get; set; }
+        public List<Objectives> Objectives { get; set; }
         [JsonProperty(propertyName: "AlternativeObjectives")]
-        public List<Objectives> alternativeObjectives { get; set; }
+        public List<Objectives> AlternativeObjectives { get; set; }
 
         [JsonProperty(propertyName: "FollowerLocation")]
-        public List<string> followerLocations { get; set; }
+        public List<string> FollowerLocations { get; set; }
+
+        [JsonProperty(propertyName: "AlternativeStartLocations")]
+        public List<string> AlternativeStartLocations { get; set; }
 
         public NewCharacterSetup()
         {
-            races = new List<string>();
-            skills = new List<Skills>();
-            objectives = new List<Objectives>();
-            followerLocations = new List<string>();
+            Races = new List<string>();
+            Skills = new List<Skills>();
+            Objectives = new List<Objectives>();
+            FollowerLocations = new List<string>();
+            AlternativeStartLocations = new List<string>();
         }
 
-        public void setDefaultSettings(bool isAlternative = false)
+        public void SetDefaultSettings(bool isAlternative = false)
         {
-            races = new List<string>()
+            Races = new List<string>()
             {
                 "Altmer",
                 "Nord",
@@ -50,7 +54,7 @@ namespace Skyrim_challenge.cs
 
             if (!isAlternative)
             {
-                objectives = new List<Objectives>
+                Objectives = new List<Objectives>
                 {
                     new Objectives("Main Quest", 3),
                     new Objectives("Thane 5 cities", 3),
@@ -74,7 +78,7 @@ namespace Skyrim_challenge.cs
 
             if (isAlternative)
             {
-                objectives = new List<Objectives>
+                Objectives = new List<Objectives>
                 {
                     new Objectives("Main Quest", 3),
                     new Objectives("Thane 5 cities", 3),
@@ -96,7 +100,7 @@ namespace Skyrim_challenge.cs
                 };
             }
 
-            skills = new List<Skills>()
+            Skills = new List<Skills>()
             {
                 new Skills("One Handed", "Attack"),
                 new Skills("Two Handed", "Attack"),
@@ -118,7 +122,7 @@ namespace Skyrim_challenge.cs
                 new Skills("Pickpocket")
             };
 
-            followerLocations = new List<string>()
+            FollowerLocations = new List<string>()
             {
                 "Whiterun",
                 "Riften",
@@ -131,6 +135,47 @@ namespace Skyrim_challenge.cs
                 "Windhelm",
                 "Riverwood",
                 "Out in the world"
+            };
+
+            AlternativeStartLocations = new List<string>()
+            {
+                "I came by ship to skyrim - Solitude",
+                "I came by ship to skyrim - Dawnstar",
+                "I came by ship to skyrim - Windhelm",
+                "I own property in one of the holds - Proudspire Manor",
+                "I own property in one of the holds - Vlindrel Hall",
+                "I own property in one of the holds - Honeyside",
+                "I own property in one of the holds - Breezehome",
+                "I own property in one of the holds - Shoal's Rest Farm",
+                "I'm a new member of a guild - The Companions",
+                "I'm a new member of a guild - The College of Winterhold",
+                "I'm a new member of a guild - Dark Brotherhood",
+                "I'm a new member of a guild - Thieves Guild",
+                "I'm a new member of a guild - The Dawnguard",
+                "I'm a new member of a guild - Lord Harkon's Court",
+                "I'm a patron at a local inn - Windspeak Inn",
+                "I'm a patron at a local inn - Four Shields Tavern",
+                "I'm a patron at a local inn - Dead Man's Drink",
+                "I'm a patron at a local inn - Vilemyr Inn",
+                "I'm a patron at a local inn - Braidwood Inn",
+                "I'm a patron at a local inn - Moorside Inn",
+                "I'm a patron at a local inn - Nightgate Inn",
+                "I'm a patron at a local inn - Sleeping Giant Inn",
+                "I'm a patron at a local inn - Frostfruit Inn",
+                "I'm a patron at a local inn - The Frozen Hearth",
+                "I'm a soldier in the army - Imperial Legion",
+                "I'm a soldier in the army - Stormcloak Rebellion",
+                "I got caught crossing the border illegally (Vanilla)",
+                "I'm an outlaw in the wilds",
+                "I am a Vigilant of Stendarr",
+                "I am camping in the woods",
+                "I was shipwrecked off the coast!",
+                "I am a vampire in a secluded lair",
+                "I am a necromancer in a secret location",
+                "I was attacked and left for dead",
+                "Escape this prison cell",
+                "Race special",
+                "Surprise me"
             };
         }
     }
